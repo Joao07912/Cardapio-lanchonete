@@ -1,31 +1,31 @@
-# 🍔 Cardápio da Lanchonete
+# Cardápio da Lanchonete
 
 Sistema web completo para visualização de cardápio e realização de pedidos online com interface responsiva.
 
-## ✨ Funcionalidades
+## Funcionalidades
 
-- 📋 Listagem de itens do cardápio por categoria (lanches, bebidas, doces)
-- 🔍 Busca de itens por nome em tempo real
-- 🏷️ Filtro por categoria
-- 🛒 Carrinho de compras com cálculo automático de subtotais
-- 📱 Interface responsiva (desktop e mobile)
-- 💾 Envio de pedidos com nome do cliente e observações
-- 🎨 Design moderno com drawer mobile para o carrinho
+- Listagem de itens do cardápio por categoria (lanches, bebidas, doces)
+- Busca de itens por nome em tempo real
+- Filtro por categoria
+- Carrinho de compras com cálculo automático de subtotais
+- Interface responsiva (desktop e mobile)
+- Envio de pedidos com nome do cliente e observações
+- Design moderno com drawer mobile para o carrinho
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **Backend**: Node.js, Express.js
 - **Armazenamento**: Arquivos JSON
 - **API**: REST API com CORS configurado
 
-## 📋 Pré-requisitos
+## Pré-requisitos
 
 - Node.js (versão 14 ou superior)
 - npm (gerenciador de pacotes)
 - Navegador web moderno
 
-## 🔧 Instalação e Execução
+## Instalação e Execução
 
 ### 1. Clone o repositório
 ```bash
@@ -43,7 +43,7 @@ npm install
 ```bash
 npm start
 ```
-**✅ Servidor rodando em:** http://localhost:3000
+**Servidor rodando em:** http://localhost:3000
 
 ### 4. Abrir o frontend
 Abra o arquivo `frontend/index.html` em um navegador web ou use um servidor local:
@@ -51,8 +51,13 @@ Abra o arquivo `frontend/index.html` em um navegador web ou use um servidor loca
 # Opção 1: Abrir diretamente
 # Clique duas vezes em frontend/index.html
 
+# Opção 2: Servidor local (recomendado)
+cd ../frontend
+python -m http.server 5500
+# Acesse: http://localhost:5500
+```
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 cardapio-lanchonete/
@@ -69,7 +74,7 @@ cardapio-lanchonete/
 └── README.md                   # Documentação
 ```
 
-## 🔌 API Endpoints
+## API Endpoints
 
 | Método | Endpoint | Descrição | Parâmetros |
 |--------|----------|-----------|------------|
@@ -88,7 +93,7 @@ cardapio-lanchonete/
 }
 ```
 
-## 🍽️ Dados do Cardápio
+## Dados do Cardápio
 
 ### Lanches
 - **X-Burger** - R$ 15,90
@@ -104,17 +109,17 @@ cardapio-lanchonete/
 - **Brigadeiro** - R$ 4,00
 - **Pudim** - R$ 8,00
 
-## 💾 Armazenamento de Dados
+## Armazenamento de Dados
 
 Os pedidos são salvos automaticamente em `backend/pedidos.json` com:
-- 🆔 ID único do pedido
-- 👤 Nome do cliente
-- 📝 Observações especiais
-- 🛒 Lista de itens pedidos
-- 💰 Valor total
-- ⏰ Data e hora do pedido
+- ID único do pedido
+- Nome do cliente
+- Observações especiais
+- Lista de itens pedidos
+- Valor total
+- Data e hora do pedido
 
-## 🎯 Funcionalidades Técnicas
+## Funcionalidades Técnicas
 
 - **CORS configurado** para desenvolvimento local
 - **Validação de dados** no backend
@@ -123,7 +128,7 @@ Os pedidos são salvos automaticamente em `backend/pedidos.json` com:
 - **Drawer mobile** para melhor UX em dispositivos móveis
 - **Cálculos automáticos** de subtotais e total
 
-## 🚀 Deploy
+## Deploy
 
 Para deploy em produção:
 1. Configure as variáveis de ambiente
@@ -131,10 +136,10 @@ Para deploy em produção:
 3. Use um servidor web para servir os arquivos estáticos
 4. Configure HTTPS para segurança
 
-## 📱 Compatibilidade
+## Compatibilidade
 
-- ✅ Chrome 80+
-- ✅ Firefox 75+
-- ✅ Safari 13+
-- ✅ Edge 80+
-- ✅ Dispositivos móveis (iOS/Android)
+- Chrome 80+
+- Firefox 75+
+- Safari 13+
+- Edge 80+
+- Dispositivos móveis (iOS/Android)
