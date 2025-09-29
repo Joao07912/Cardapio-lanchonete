@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio da Lanchonete</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Lanchonete do Bairro</h1>
+    </header>
+
+    <main>
+        <section class="filtros">
+            <input type="text" id="busca" placeholder="Buscar item...">
+        </section>
+
+        <nav class="categoria-nav">
+            <button class="categoria-btn ativo" data-categoria="">Todos</button>
+            <button class="categoria-btn" data-categoria="lanches">Lanches</button>
+            <button class="categoria-btn" data-categoria="bebidas">Bebidas</button>
+            <button class="categoria-btn" data-categoria="doces">Doces</button>
+        </nav>
+
+        <section class="cardapio" id="cardapio">
+            <!-- Itens serão carregados aqui -->
+        </section>
+
+        <aside class="carrinho">
+            <h2>Carrinho</h2>
+            <div id="itens-carrinho"></div>
+            <div class="total">
+                <strong>Total: R$ <span id="total">0.00</span></strong>
+            </div>
+            <button id="finalizar-pedido" disabled>Finalizar Pedido</button>
+        </aside>
+    </main>
+
+    <!-- Modal do pedido -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3>Finalizar Pedido</h3>
+            <form id="form-pedido">
+                <input type="text" id="nome-cliente" placeholder="Seu nome" required>
+                <textarea id="observacoes" placeholder="Observações (opcional)"></textarea>
+                <div class="modal-buttons">
+                    <button type="button" id="cancelar">Cancelar</button>
+                    <button type="submit">Enviar Pedido</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="mensagem" class="mensagem"></div>
+
+    <!-- Botão flutuante do carrinho (mobile) -->
+    <button id="carrinho-flutuante" class="carrinho-flutuante">
+        🛒 <span id="contador-itens">0</span>
+    </button>
+
+    <!-- Drawer do carrinho (mobile) -->
+    <div id="carrinho-drawer" class="carrinho-drawer">
+        <div class="carrinho-drawer-content">
+            <div class="drawer-header">
+                <h2>Carrinho</h2>
+                <button id="fechar-drawer">×</button>
+            </div>
+            <div class="drawer-content">
+                <div id="itens-carrinho-mobile"></div>
+                <div class="total">
+                    <strong>Total: R$ <span id="total-mobile">0.00</span></strong>
+                </div>
+                <button id="finalizar-pedido-mobile" disabled>Finalizar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

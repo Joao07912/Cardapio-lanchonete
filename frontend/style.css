@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.filtros {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtros input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.categoria-nav {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+.categoria-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #ecf0f1;
+    color: #2c3e50;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+    min-width: fit-content;
+}
+
+.categoria-btn:hover {
+    background: #d5dbdb;
+    transform: translateY(-1px);
+}
+
+.categoria-btn.ativo {
+    background: #3498db;
+    color: white;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.cardapio {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.item {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.item:hover {
+    transform: translateY(-2px);
+}
+
+.item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    background: #f8f9fa;
+    transition: opacity 0.3s;
+}
+
+.item img[data-loading="true"] {
+    opacity: 0.5;
+}
+
+.item-content {
+    padding: 15px;
+}
+
+.item h3 {
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.item .categoria {
+    background: #3498db;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.item .preco {
+    font-size: 18px;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 10px 0;
+}
+
+.item button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.item button:hover {
+    background: #219a52;
+}
+
+.carrinho {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.carrinho h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.item-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.item-carrinho:last-child {
+    border-bottom: none;
+}
+
+.item-carrinho-info {
+    flex: 1;
+}
+
+.item-carrinho-nome {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 2px;
+}
+
+.item-carrinho-detalhes {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+.item-carrinho button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.total {
+    margin: 15px 0;
+    padding: 10px 0;
+    border-top: 2px solid #2c3e50;
+    font-size: 18px;
+}
+
+#finalizar-pedido {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+#finalizar-pedido:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+#finalizar-pedido:not(:disabled):hover {
+    background: #2980b9;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.modal-content input, .modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.modal-content textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-buttons button[type="button"] {
+    background: #95a5a6;
+    color: white;
+}
+
+.modal-buttons button[type="submit"] {
+    background: #27ae60;
+    color: white;
+}
+
+.mensagem {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    z-index: 1001;
+    display: none;
+}
+
+.mensagem.sucesso {
+    background: #27ae60;
+}
+
+.mensagem.erro {
+    background: #e74c3c;
+}
+
+/* Botão flutuante do carrinho */
+.carrinho-flutuante {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+    z-index: 1000;
+    transition: all 0.3s;
+}
+
+.carrinho-flutuante:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+.carrinho-flutuante span {
+    background: white;
+    color: #e74c3c;
+    border-radius: 50%;
+    padding: 2px 8px;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+/* Drawer do carrinho */
+.carrinho-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.carrinho-drawer.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.carrinho-drawer-content {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 90%;
+    max-width: 400px;
+    height: 100%;
+    background: white;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.carrinho-drawer.ativo .carrinho-drawer-content {
+    transform: translateX(0);
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #2c3e50;
+    color: white;
+    flex-shrink: 0;
+}
+
+.drawer-header h2 {
+    margin: 0;
+}
+
+.drawer-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.drawer-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer-content .total {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 2px solid #2c3e50;
+}
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+        padding-bottom: 80px;
+    }
+    
+    .filtros {
+        flex-direction: column;
+    }
+    
+    .cardapio {
+        grid-template-columns: 1fr;
+    }
+    
+    .categoria-nav {
+        padding: 8px;
+    }
+    
+    .categoria-btn {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+    
+    .carrinho {
+        display: none;
+    }
+    
+    .carrinho-flutuante {
+        display: block;
+    }
+    
+    .carrinho-drawer-content {
+        width: 100%;
+        max-width: none;
+    }
+}
